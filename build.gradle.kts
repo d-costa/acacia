@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform") version "1.8.0"
     id("org.jetbrains.kotlinx.kover") version "0.6.1"
+    id("maven-publish")
 }
 
 group = "com.github.d-costa"
