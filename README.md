@@ -9,3 +9,14 @@ Multiplatform implementation of various tree structures in Kotlin
 
 > Acacia, commonly known as the wattles or acacias, is a large genus of shrubs and trees in the subfamily Mimosoideae of the pea family Fabaceae.
 
+## Usage
+
+```kotlin
+repositories {
+    maven { url = uri("https://www.jitpack.io") }
+}
+
+dependencies {
+    implementation("com.github.d-costa:acacia-jvm:0.0.5")
+}
+```
