@@ -6,74 +6,11 @@ plugins {
 }
 
 group = "com.github.d-costa"
-version = "0.0.4"
+version = "0.0.5"
 
 repositories {
     mavenCentral()
 }
-
-tasks.dokkaHtml.configure {
-    outputDirectory.set(buildDir.resolve("dokka"))
-}
-
-
-val javadocJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("javadoc")
-    from(tasks.dokkaHtml)
-}
-publishing {
-    publications.forEach {
-        if (it !is MavenPublication) {
-            return@forEach
-        }
-
-        it.artifact(javadocJar)
-    }
-}
-//val dokkaOutputDir = "$buildDir/dokka"
-//
-//
-//tasks.getByName<DokkaTask>("dokkaHtml") {
-//    outputDirectory.set(file(dokkaOutputDir))
-//}
-//
-//val deleteDokkaOutputDir by tasks.register<Delete>("deleteDokkaOutputDirectory") {
-//    delete(dokkaOutputDir)
-//}
-//
-//val javadocJar = tasks.register<Jar>("javadocJar") {
-//    dependsOn(deleteDokkaOutputDir, tasks.dokkaHtml)
-//    archiveClassifier.set("javadoc")
-//    from(dokkaOutputDir)
-//}
-//
-//publishing {
-//    publications {
-//        withType<MavenPublication> {
-//            artifact(javadocJar)
-//            pom {/* ... */ }
-//        }
-//    }
-//}
-
-//tasks.withType<DokkaTask>().configureEach {
-//    // custom output directory
-//    outputDirectory.set(buildDir.resolve("dokka"))
-//
-//    dokkaSourceSets {
-//        named("customNameMain") { // The same name as in Kotlin Multiplatform plugin, so the sources are fetched automatically
-//            includes.from("packages.md", "extra.md")
-//            samples.from("samples/basic.kt", "samples/advanced.kt")
-//        }
-//
-//        register("differentName") { // Different name, so source roots must be passed explicitly
-//            displayName.set("JVM")
-//            platform.set(org.jetbrains.dokka.Platform.jvm)
-//            sourceRoots.from(kotlin.sourceSets.getByName("jvmMain").kotlin.srcDirs)
-//            sourceRoots.from(kotlin.sourceSets.getByName("commonMain").kotlin.srcDirs)
-//        }
-//    }
-//}
 
 kotlin {
     jvm {
