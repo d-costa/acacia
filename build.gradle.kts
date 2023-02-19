@@ -19,8 +19,10 @@ kotlin {
         }
     }
     js(IR) {
-        browser()
-        nodejs()
+//        browser()
+        nodejs {
+            version = 16
+        }
     }
     val hostOs = System.getProperty("os.name")
     val isMingwX64 = hostOs.startsWith("Windows")
