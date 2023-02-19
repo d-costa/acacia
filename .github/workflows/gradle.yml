@@ -23,6 +23,7 @@ jobs:
           gradle-version: 7.4.2
           arguments: build
   coverage:
+    needs: build-multiplatform
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
