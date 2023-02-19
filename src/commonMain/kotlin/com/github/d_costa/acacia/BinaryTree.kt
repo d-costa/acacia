@@ -6,7 +6,11 @@ data class BNode<T>(
     val right: BNode<T>? = null
 )
 
-
+/**
+ * A Binary Tree
+ *
+ * Supports insertion, deletion, and iteration
+ */
 class BinaryTree<T : Comparable<T>>: Iterable<T> {
 
     var root: BNode<T>? = null
